@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
@@ -73,9 +75,10 @@ func (app *config) saveAsFunc(win fyne.Window) func(){
 			// save the file
 			write.Write([]byte(app.EditWidget.Text))
 			app.CurrentFile=write.URI()
-
+			log.Println("write.URI()=",app.CurrentFile)
 			defer write.Close()
 			win.SetTitle(win.Title()+" - " + write.URI().Name())
+			log.Println( "write.URI().Name()=",write.URI().Name())
 			app.SaveMenuItem.Disabled=false
 		},win)
 		saveDialog.Show()
