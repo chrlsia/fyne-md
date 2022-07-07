@@ -74,6 +74,7 @@ func (app *config) saveAsFunc(win fyne.Window) func(){
 
 			// save the file
 			write.Write([]byte(app.EditWidget.Text))
+			log.Println(string([]byte(app.EditWidget.Text)))
 			app.CurrentFile=write.URI()
 			log.Println("write.URI()=",app.CurrentFile)
 			defer write.Close()
