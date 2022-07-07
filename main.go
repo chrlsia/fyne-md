@@ -12,7 +12,7 @@ import (
 
 type config struct{
 	EditWidget *widget.Entry
-	PreviewWidger *widget.RichText
+	PreviewWidget *widget.RichText
 	CurrentFile fyne.URI
 	SaveMenuItem *fyne.MenuItem
 }
@@ -40,7 +40,7 @@ func (app *config) makeUI() (*widget.Entry,*widget.RichText){
 	edit:=widget.NewMultiLineEntry()
 	preview:=widget.NewRichTextFromMarkdown("")
 	app.EditWidget=edit
-	app.PreviewWidger=preview
+	app.PreviewWidget=preview
 
 	edit.OnChanged = preview.ParseMarkdown
 	return edit,preview
